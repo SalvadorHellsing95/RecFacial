@@ -5,7 +5,7 @@ Created on Sun Jun  3 16:47:14 2018
 
 @author: salvador
 """
-from PIL import Image
+from PIL import Image, ImageDraw
 try:
     imagen=Image.open("Images/Ejemplo.jpg")
   #  imagen.show()
@@ -28,3 +28,12 @@ for i in range(10):
         NewDir+='.jpg'
         region.save(NewDir)
         Aux+=1
+        
+        #Prueba de Dibujo.
+        draw=ImageDraw.Draw(region)
+        draw.line((0, 0) + (0,59), fill=200)
+        draw.line((0, 0) + (79,0), fill=200)
+        draw.line((0, 59)+(79,59), fill=200)
+        draw.line((79, 0)+(79,59), fill=200)
+        del draw
+        region.save(NewDir)
